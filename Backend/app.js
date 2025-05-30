@@ -30,6 +30,10 @@ app.use((req, res, next) => {
 app.use("/api/auth", authRoutes);
 app.use('/api/proforma', proformaRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err);
