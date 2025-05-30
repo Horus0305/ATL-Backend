@@ -1,9 +1,9 @@
 // import materialTestRoutes from './routes/materialTest.js';
 
-import express from "express";
-import cors from "cors";
-import authRoutes from "./routes/authRoutes.js";
-import proformaRoutes from './routes/proforma.js';
+const express = require("express");
+const cors = require("cors");
+const authRoutes = require("./routes/authRoutes.js");
+const proformaRoutes = require("./routes/proforma.js");
 
 const app = express();
 
