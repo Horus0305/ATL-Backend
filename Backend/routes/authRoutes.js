@@ -26,7 +26,7 @@ router.post("/login", async (req, res) => {
     }).select("+password");
 
     if (!user) {
-      console.log("User not found");
+      console.log("User not found",username, password);
       return res.status(401).json({
         error: "Invalid username or password",
         ok: false,

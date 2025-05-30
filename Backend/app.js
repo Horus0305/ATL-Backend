@@ -5,17 +5,10 @@ import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/authRoutes.js";
 import proformaRoutes from "./routes/proforma.js";
+import { connectToDatabase } from "./utils/db.js";
 
-// Connect to MongoDB
-mongoose
-  .connect(process.env.DATABASE_URL)
-  .then(() => {
-    console.log("Connected to MongoDB successfully");
-  })
-  .catch((error) => {
-    console.error("MongoDB connection error:", error);
-    process.exit(1);
-  });
+// Ensure MongoDB connection before handling any requests
+await connectToDatabase();
 
 const app = express();
 
