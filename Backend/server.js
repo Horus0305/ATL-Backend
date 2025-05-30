@@ -33,7 +33,7 @@ if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
 // Log Novu key for debugging
 console.log('NOVU_SECRET_KEY in server.js:', process.env.NOVU_SECRET_KEY ? 'Key exists' : 'Key missing');
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -88,10 +88,7 @@ mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => {
     console.log("Connected to MongoDB successfully");
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    //   console.log(`API endpoint: http://localhost:${PORT}/api`);
-    });
+    
   })
   .catch((error) => {
     console.error("MongoDB connection error:", error);
