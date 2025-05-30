@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+        <style>
+            table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            table-layout:fixed;
+          }
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            font-size: 12px;
+            padding: 2px;
+            word-wrap: break-word;
+            
+          }
+          
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+        
+          
+          th.test{
+            width: 100px;
+          }
+          .sign{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        
+          .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+          .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        </style>
+    </head>
+    <body style="height:100%" >
+        <div style="position: relative;" >
+            <div>
+                <div style="position:absolute;left:0">
+                    <img src="https://res.cloudinary.com/dzus0pcxr/image/upload/v1745906674/atl_logo_yiezsk.png" width="275" height="80"  />
+                </div>
+                <div style="position:absolute;right:0" >
+                    <img src="https://res.cloudinary.com/dzus0pcxr/image/upload/v1743350341/logo_tzy2n8.png" width="200" height="100" />
+                </div>
+            </div>
+            <div style="position: relative; top: 100px;" >
+                <h3 style="width:100%; text-align: center; top:30px; " >Proforma Invoice</h4>
+                    <table>
+                        <tr>
+                            <td rowspan="4" style="align-items: flex-start;text-align: left;padding: 10;" >
+                                <b>AVANT-TECH LAB & RESEARCH CENTRE PRIVATE LIMITED</b> <br/>
+                                UNIT NO 25 & 26, GR FLOOR,
+                                PLOT NO D1, TTC INDL AREA<br/>
+                                TURBHE, NAVI MUMBAI<br/>
+                                GSTIN/UIN: 27AAQCA9454R1ZJ, 
+                                State Name : Maharashtra, <br>
+                                Code : 27<br/>
+                                CIN: U74999MH2018PTC309906 <br>
+                                E-Mail : sgovilkar@avant-techlab.com<br/>
+    
+                              </td>
+                          <td>
+                              <table>
+                                  <tr>
+                                      <td>Proforma Invoice No: {{invoiceno}}</td>
+                                      <td>Date: {{date}}</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Delivery Note: </td>
+                                      <td>Mode/Terms of Payment: {{mode}}</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Supplier's Ref: </td>
+                                      <td>Other References: </td>
+                                  </tr>
+                                  <tr>
+                                      <td>Buyer's Order No: </td>
+                                      <td>Dated: </td>
+                                  </tr>
+                              </table>
+                          </td>
+                        </tr>
+                      </table>
+                      <table>
+                        <tr>
+                          <td rowspan="4" style="align-items: flex-start;text-align: left;padding: 10;" >
+                            Buyer:{{buyer.name}} <br/>
+                            Address:{{buyer.address}} <br/>
+                            GSTIN/UIN:{{buyer.gstin}} <br/>
+                            PAN/IT No:{{buyer.pan}} <br/>
+                            State Name: Maharashtra, Code: 27
+                          </td>
+                          <td>
+                              <table>
+                                  <tr>
+                                      <td>Dispatch Document No: </td>
+                                      <td>Delivery Note Date: </td>
+                                  </tr>
+                                  <tr>
+                                      <td>Dispatched through: </td>
+                                      <td>Destination: </td>
+                                  </tr>
+                                  <tr>
+                                      <td  colspan="2" style="height: 50px;" >Terms of Delivery</td>
+                                  </tr>
+                                  
+                              </table>
+                          </td>
+                        </tr>
+                      </table>
+                    <table>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th style="width: 300px;" >Description Of Service</th>
+                            <th>HSN/SAC</th>
+                            <th>Quantity</th>
+                            <th>Rate</th>
+                            <th>per</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>TESTING CHARGES</b></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {{#each test}}
+                        <tr>
+                            <td>{{srno}}</td>
+                            <td>{{description}}</td>
+                            <td>{{hsnsac}}</td>
+                            <td>{{qty}}</td>
+                            <td>{{rate}}</td>
+                            <td>{{per}}</td>
+                            <td>{{amount}}</td>
+                        </tr>
+                        {{/each}}
+                        <tr>
+                            <td></td>
+                            <td>SGST ON SALES @ {{sgst}}%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{sgstamt}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>CGST ON SALES @ {{cgst}}%</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{cgstamt}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>roundoff</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{rounding}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{total}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" >Amount chargeable in words: {{words}}</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th colspan="2"></th>
+                            <th colspan="2">Central Tax</th>
+                            <th colspan="2">State Tax</th>
+                            <th></th>
+                          </tr>
+                        <tr>
+                          <th>HSN/SAC</th>
+                          <th>Taxable Value</th>
+                          <th>Rate</th>
+                          <th>Amount</th>
+                          <th>Rate</th>
+                          <th>Amount</th>
+                          <th>Total Tax Amount</th>
+                        </tr>
+                        <tr>
+                          <td>{{hsn}}</td>
+                          <td>{{total_amt}}</td>
+                          <td>{{cgst}}%</td>
+                          <td>{{cgstamt}}</td>
+                          <td>{{sgst}}%</td>
+                          <td>{{sgstamt}}</td>
+                          <td>{{totaltax}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Total</b></td>
+                            <td>{{total_amt}}</td>
+                            <td></td>
+                            <td>{{cgst}}</td>
+                            <td></td>
+                            <td>{{sgst}}</td>
+                            <td>{{totaltax}}</td>
+                          </tr>
+                        <tr>
+                            <td colspan="7" >Tax amount total: {{taxword}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" > Company's PAN: AAQCA9454R</td>
+                            <td colspan="3" >Company's Bank Details</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" >Declaration</td>
+                            <td colspan="3" >
+                                <table>
+                                    <tr>
+                                        <td>Bank Name:</td>
+                                        <td>HDFC BANK LTD C/A NO </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" >We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.   
+                            </td>
+                            <td colspan="3" >
+                                <table>
+                                    <tr>
+                                        <td>A/c No.:</td>
+                                        <td>50200035504002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Branch & IFS Code:</td>
+                                        <td>VASHI & HDFC0000540</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                      </table>
+                      
+                    <table>
+                        <tr>
+                            <td><b>Qr Code</b></td>
+                            <td>
+                                <img src="https://res.cloudinary.com/dzus0pcxr/image/upload/v1745907442/payment_atl_xwm7iy.png" width="100" height="100"  />
+                            </td>
+                        </tr>
+                        <tr style="height: 100px;">
+                            <td>Interest @ 18% PA will be charged on delayed payment.</td>
+                            <td><b>for AVANT-TECH LAB & RESEARCH CENTRE PRIVATE LIMITED</b></td>
+                        </tr>
+                    </table>
+                        
+            </div>
+
+        </div>
+        
+            
+    </body>
+</html>
+

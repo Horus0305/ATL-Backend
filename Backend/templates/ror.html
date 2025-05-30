@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        font-size: 12px;
+        padding: 2px;
+        word-wrap: break-word;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      th.test {
+        width: 100px;
+      }
+      .sign {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body style="height: 100%">
+    <div style="position: relative">
+      <div>
+        <div style="position: absolute; left: 0">
+          <img
+            src="https://res.cloudinary.com/dzus0pcxr/image/upload/v1745906674/atl_logo_yiezsk.png"
+            width="275"
+            height="80"
+          />
+        </div>
+        <!-- <div style="position:absolute;right:0" >
+                    <img src="https://res.cloudinary.com/db43epvcg/image/upload/v1698575727/kcbasfbamzntpmvk7ctn.png" width="200" height="100" />
+                </div> -->
+      </div>
+
+      <div style="position: relative; top: 100px">
+        <h3 style="width: 100%; text-align: center; top: 30px">
+          Material Receipt and Review of Request
+        </h3>
+        <div style="position: relative">
+          <p>ROR No: {{rorNo}}</p>
+          <p>Date: {{date}}</p>
+
+          <p style="margin: 0; padding: 0">Customer Name: {{customerName}}</p>
+          <p style="margin: 0; padding: 0">Project Name: {{projectName}}</p>
+          <p style="margin: 0; padding: 0">Site Address: {{siteAddress}}</p>
+          <p style="margin: 0; padding: 0">
+            Billing Address: {{billingAddress}}
+          </p>
+        </div>
+
+        <p style="margin: 1; padding: 0">Details of Materials Received</p>
+        <table>
+          <tr>
+            <th width="15">Sr No</th>
+            <th width="50">Material</th>
+            <th width="25">Qty</th>
+            <th width="120">Test to be performed</th>
+            <th width="40">Cust Material Id</th>
+            <th width="75">ATL No</th>
+            <th width="75">Test Standards</th>
+            <th width="50">Remarks</th>
+          </tr>
+          {{#each tests}}
+          <tr>
+            <td>{{add @index 1}}</td>
+            <td>{{material}}</td>
+            <td>{{quantity}}</td>
+            <td>{{test}}</td>
+            <td>{{materialId}}</td>
+            <td>{{atlId}}</td>
+            <td>{{standard}}</td>
+            <td>{{remarks}}</td>
+          </tr>
+          {{/each}}
+        </table>
+
+        <div>
+          <ol type="1">
+            <li>
+              Test methods, are adequately defined, documented and understood -
+              {{requirements.testMethods}}
+            </li>
+            <li>
+              The Laboratory has the capability and resources to meet the
+              requirements - {{requirements.laboratoryCapability}}
+            </li>
+            <li>
+              Appropriate test methods as per NABL accreditation is selected and
+              capable of meeting the customer requirements -
+              {{requirements.appropriateTestMethods}}
+            </li>
+            <li>
+              Application of decision rule required -
+              {{requirements.decisionRule}}
+            </li>
+            <li>
+              External provider services used -
+              {{requirements.externalProvider}}
+            </li>
+          </ol>
+          <p>
+            Estimated time for dispatch of test report {{daysRequired}} Working
+            days.
+          </p>
+        </div>
+
+        <div style="display: block">
+          <div style="float: left; width: 70%">
+            <div style="align-self: center">
+              <img
+                src="https://res.cloudinary.com/db43epvcg/image/upload/v1698546249/ojg5cme65mqrwbqmpjoc.jpg"
+                style="text-align: center"
+                width="120"
+                height="50"
+              />
+            </div>
+            <p>Technical Manager/Quality Manager</p>
+          </div>
+          <div style="float: right; width: 30%">
+            <p style="margin: 0; padding: 0">Customer's Representative</p>
+            <p style="margin: 0; padding: 0">Mail Id: {{emailId}}</p>
+            <p style="margin: 0; padding: 0">Mobile No: {{contactNo}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div style="position: relative; top: 150px">
+        <p style="width: 100%; margin: 0; padding: 0; text-align: center">
+          Avant-Tech Lab & Research Centre Pvt Ltd, 25/26, Plot No. D1, TTC
+          Industrial Area, Turbhe, Navi Mumbai 400705
+        </p>
+        <p style="margin: 0; padding: 0; text-align: center">
+          Mobile No: 98210 68538 Email ID: sgovilkar@avant-techlab.com
+        </p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </body>
+</html>

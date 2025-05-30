@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@novu/api": "^1.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "handlebars": "^4.7.8",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.8.6",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.10.0",
+    "puppeteer": "^22.15.0"
+  }
+}
