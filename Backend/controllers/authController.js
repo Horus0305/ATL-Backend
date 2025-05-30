@@ -157,7 +157,7 @@ exports.checkUser = async (req, res) => {
 exports.sendReset = async (req, res) => {
   try {
     const { username, email } = req.body;
-    const link = `http://localhost:3000/reset_password/${username}`;
+    const link = `${process.env.FRONTEND_URL}/reset_password/${username}`;
 
     const msg = {
       to: email,
